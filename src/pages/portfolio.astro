@@ -1,0 +1,156 @@
+---
+import Base from "../layouts/Base.astro";
+
+const cases = [
+  {
+    img: "/images/mural-david.jpg",
+    chips: ["Арт", "Лобби", "Минск"],
+    t: "Давид",
+    p: "Голова Давида Микеланджело в технике мягкой растушёвки на стене входной зоны. Классический сюжет в сдержанной серой гамме делает помещение строгим и статусным. Печать передаёт тончайшие переходы тонов, поэтому скульптура выглядит объёмной даже на плоской стене.",
+  },
+  {
+    img: "/images/mural-matterhorn.jpg",
+    chips: ["Фотопечать", "Квартира", "Минск"],
+    t: "Маттерхорн",
+    p: "Фотопечать горной вершины на фактурной декоративной штукатурке с мягким растворением у краёв. Дикий пейзаж превращает обычную комнату в атмосферное пространство. Хороший пример того, что печать ложится не только на гладкую стену, но и на рельефную поверхность.",
+  },
+  {
+    img: "/images/mural-jordan.jpg",
+    chips: ["Спорт", "Шоурум", "Минск"],
+    t: "Легенда баскетбола",
+    p: "Динамичный мурал для шоурума уличной одежды и фирменный штамп бренда на соседней стене. Яркая иллюстрация задаёт характер всему помещению и сразу считывается как часть айдентики магазина. Цвета остаются насыщенными даже под прямым светом ламп.",
+  },
+  {
+    img: "/images/wall-harbor.jpg",
+    chips: ["3D-иллюзия", "Бизнес-центр", "Минск"],
+    t: "Порт на закате",
+    p: "Глухую стену в общественной зоне превратили в окно с видом на морской порт. За счёт перспективы и фотографического качества кажется, что стена раскрылась наружу. Сюжет визуально углубляет помещение и стал точкой, у которой фотографируются посетители.",
+  },
+];
+
+const gallery = [
+  { img: "/images/mural-time.jpg", cat: "Типографика", title: "То самое время", loc: "Офис" },
+  { img: "/images/mural-samarkand.jpg", cat: "Живопись", title: "Самарканд", loc: "Ресторан" },
+  { img: "/images/mural-floral.jpg", cat: "Декор", title: "Цветочная стена", loc: "Студия" },
+  { img: "/images/mural-elmas.jpg", cat: "Брендинг", title: "Elmas Cosmetology", loc: "Салон" },
+  { img: "/images/mural-astronaut.jpg", cat: "Иллюстрация", title: "Космонавт", loc: "Офис" },
+  { img: "/images/mural-pear.jpg", cat: "Оформление", title: "Правила столовой", loc: "Кафе" },
+  { img: "/images/wall-eye.jpg", cat: "Фотопечать", title: "Взгляд", loc: "Переговорная" },
+  { img: "/images/wall-network.webp", cat: "Брендинг", title: "Карта связей", loc: "IT-офис" },
+  { img: "/images/wall-portrait.jpg", cat: "Графика", title: "Графический портрет", loc: "Лобби" },
+  { img: "/images/wall-idea.jpg", cat: "Мурал", title: "Рождение идеи", loc: "Коворкинг" },
+  { img: "/images/mural-kids.jpg", cat: "Детям", title: "Ростомер", loc: "Детская" },
+  { img: "/images/printer-action.jpg", cat: "Процесс", title: "Печать в действии", loc: "Офис" },
+];
+---
+
+<Base title="Портфолио" description="Портфолио Gigapixel: примеры прямой печати на стенах в Минске — арт-муралы, фотопечать, 3D-иллюзии, брендирование офисов, кафе и салонов. Реальные объекты.">
+  <section class="page-hero">
+    <div class="wrap" style="position:relative;z-index:1;">
+      <p class="crumb">Главная — Портфолио</p>
+      <h1>Наши работы <span class="hl hl-magenta">на стенах</span></h1>
+      <p class="lead">
+        Реальные объекты в Минске: офисы, салоны, шоурумы, кафе, лобби и квартиры. От спокойной
+        фотопечати до ярких муралов и 3D-иллюзий.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-bottom:0;">
+    <div class="wrap prose reveal" style="max-width:80ch;">
+      <p>
+        Мы собрали здесь работы из разных направлений — от классического искусства и фотопечати до
+        фирменных стен для бизнеса. Они показывают главное: прямая печать одинаково хорошо справляется
+        и с тонкой графикой, и с плотным цветом, и на большой площади, и даже на рельефной штукатурке.
+        Каждый проект мы начинали с замера и 3D-макета, а саму печать чаще всего укладывали в один
+        рабочий день.
+      </p>
+      <p>
+        Обратите внимание на разнообразие помещений: переговорные и опенспейсы, салоны красоты,
+        магазины и шоурумы, кафе, детские и квартиры. Везде задача была своя — где-то углубить
+        пространство, где-то усилить бренд, где-то просто сделать стену, у которой хочется
+        сфотографироваться.
+      </p>
+    </div>
+  </section>
+
+  <!-- featured cases -->
+  <section class="section" style="padding-top:32px;padding-bottom:24px;">
+    <div class="wrap">
+      {cases.map((c) => (
+        <div class="case reveal">
+          <div class="case-media"><img src={c.img} alt={c.t} loading="lazy" /></div>
+          <div>
+            <div class="tagrow">
+              {c.chips.map((ch, i) => <span class={`chip ${i === 0 ? "lime" : ""}`}>{ch}</span>)}
+            </div>
+            <h3 class="h-section" style="font-size:clamp(1.5rem,3vw,2.1rem);margin-bottom:12px;">{c.t}</h3>
+            <p style="font-size:1.0625rem;line-height:1.78;color:#3c3c3c;">{c.p}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- full gallery -->
+  <section class="section" style="padding-top:24px;">
+    <div class="wrap">
+      <p class="eyebrow reveal">Ещё работы</p>
+      <h2 class="h-section reveal" style="margin:14px 0 32px;">Больше напечатанных стен</h2>
+      <div class="masonry">
+        {gallery.map((w) => (
+          <a href="/kontakty/" class="work reveal">
+            <img src={w.img} alt={w.title} loading="lazy" />
+            <div class="work-info">
+              <span class="work-cat">{w.cat}</span>
+              <div class="work-title">{w.title}</div>
+              <div class="work-loc">{w.loc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- approach -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start;">
+      <div class="reveal">
+        <p class="eyebrow">Наш подход</p>
+        <h2 class="h-section" style="margin-top:14px;max-width:14ch;">Что стоит за каждой работой</h2>
+      </div>
+      <div class="prose reveal d1" style="max-width:none;">
+        <p>
+          За каждой стеной из портфолио — одинаковый порядок действий. Сначала мы приезжаем на объект,
+          измеряем поверхность и оцениваем её состояние: ровность, материал, освещение. От этого
+          зависит, какой сюжет будет смотреться лучше и нужна ли подготовка стены.
+        </p>
+        <p>
+          Затем мы готовим 3D-визуализацию — показываем изображение прямо на фотографии вашего
+          помещения, в реальном масштабе. На этом этапе легко поменять кадрирование, цвет или сам
+          сюжет, пока ничего ещё не напечатано. Только после вашего согласия мы выезжаем на печать.
+        </p>
+        <p>
+          Мы одинаково внимательно относимся и к маленькой стене в квартире, и к большому проекту для
+          бизнеса: подбираем плотность цвета под освещение помещения и следим, чтобы итог на стене
+          совпадал с макетом. Именно поэтому работы держат качество и вблизи, и на расстоянии.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-banner grit reveal">
+        <div class="inner">
+          <h2 class="h-section" style="max-width:22ch;margin:0 auto;">Хотите так же на своей стене?</h2>
+          <p class="lead" style="color:#cfcfcf;margin:18px auto 0;max-width:52ch;">
+            Покажите нам стену и расскажите про идею — подберём сюжет, рассчитаем стоимость и
+            бесплатно соберём 3D-макет.
+          </p>
+          <div style="margin-top:30px;"><a href="/kontakty/" class="btn btn-accent">Обсудить проект <span class="arr">→</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

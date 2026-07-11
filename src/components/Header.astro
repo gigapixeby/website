@@ -1,0 +1,60 @@
+---
+import { site } from "../site.config";
+const offers = [
+  "Бесплатный выезд дизайнера по Минску",
+  "3D-визуализация вашей стены в подарок",
+  "Печать на любой поверхности",
+  "Гарантия стойкости до 10 лет",
+];
+const norm = (p: string) => (p.endsWith("/") ? p : p + "/");
+const here = norm(Astro.url.pathname);
+const isActive = (href: string) => (href === "/" ? here === "/" : here.startsWith(norm(href)));
+---
+
+<!-- top offer marquee -->
+<div class="topbar" aria-hidden="true">
+  <div class="marquee">
+    <span>{[...offers, ...offers, ...offers].map((o) => (<>{o}<i class="dot"></i></>))}</span>
+    <span>{[...offers, ...offers, ...offers].map((o) => (<>{o}<i class="dot"></i></>))}</span>
+  </div>
+</div>
+
+<header class="header" id="top">
+  <div class="wrap header-inner">
+    <a href="/" class="logo" aria-label="Gigapixel — печать на стенах">
+      <img src="/images/logo-black.png" alt="GIGAPIXEL Wall Printing" />
+    </a>
+
+    <nav class="nav">
+      {site.nav.map((item) => (
+        <a href={item.href} class={isActive(item.href) ? "active" : ""}>{item.label}</a>
+      ))}
+    </nav>
+
+    <div class="header-cta">
+      <a class="header-phone" href={`tel:${site.phoneHref}`}>{site.phone}</a>
+      <a href="/kontakty/" class="btn btn-accent" style="padding:12px 24px;">Связаться</a>
+      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-backdrop" id="backdrop"></div>
+<nav class="mobile-nav" id="mobileNav">
+  {site.nav.map((item) => <a href={item.href}>{item.label}</a>)}
+  <a href={`tel:${site.phoneHref}`} class="btn btn-accent" style="margin-top:18px;justify-content:center;">{site.phone}</a>
+</nav>
+
+<script>
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("mobileNav");
+  const backdrop = document.getElementById("backdrop");
+  const toggle = (open: boolean) => {
+    nav?.classList.toggle("open", open);
+    backdrop?.classList.toggle("open", open);
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+  burger?.addEventListener("click", () => toggle(!nav?.classList.contains("open")));
+  backdrop?.addEventListener("click", () => toggle(false));
+  nav?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => toggle(false)));
+</script>

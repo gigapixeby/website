@@ -1,0 +1,161 @@
+---
+import Base from "../layouts/Base.astro";
+
+// Стойкость и Поверхности вынесены в отдельные секции ниже — здесь без повторов.
+const benefits = [
+  ["Качество", "Фотографическое — детали и плавные переходы видны даже вблизи."],
+  ["Без швов", "Цельная картинка на всю стену, без стыков и краёв."],
+  ["Чистота", "Без пыли и резкого запаха, стена сухая сразу после печати."],
+  ["Сроки", "Большинство стен мы печатаем за один рабочий день."],
+];
+
+const compare = [
+  { t: "Обои и фотообои", d: "Швы и стыки, отклеиваются по краям, боятся влаги, рисунок ограничен каталогом. Печать ложится без швов и повторяет любой сюжет." },
+  { t: "Самоклеящаяся плёнка", d: "Со временем пузырится и выгорает, плохо ложится на фактуру. Изображение впитывается в поверхность и держится годами." },
+  { t: "Ручная роспись", d: "Дорого, долго и зависит от художника. Печать повторяет согласованный макет точно и в разы быстрее." },
+];
+---
+
+<Base title="Технология" description="Как работает прямая печать по стене: изображение наносится сразу на поверхность, с фотографическим качеством, без обоев и плёнки. Печать на бетоне, штукатурке, стекле и кирпиче в Минске.">
+  <section class="page-hero">
+    <div class="wrap" style="position:relative;z-index:1;">
+      <p class="crumb">Главная — Технология</p>
+      <h1>Как печать ложится <span class="hl">прямо на стену</span></h1>
+      <p class="lead">
+        Без обоев, плёнки и кисти. Разбираем простыми словами, что такое прямая печать по стене
+        и почему изображение получается чётким и держится годами.
+      </p>
+    </div>
+  </section>
+
+  <!-- intro -->
+  <section class="section" style="padding-bottom:48px;">
+    <div class="wrap prose reveal" style="max-width:80ch;">
+      <p>
+        Прямая печать по стене — это нанесение изображения сразу на поверхность, без промежуточного
+        носителя. Раньше, чтобы получить большую картинку на стене, нужно было напечатать её на бумаге
+        или плёнке, привезти рулонами и аккуратно наклеить, борясь со стыками и пузырями. Теперь
+        изображение появляется прямо на стене у вас на объекте, в полном цвете и в любом размере.
+      </p>
+      <p>
+        Для вас это означает три вещи. Во-первых, нет швов — изображение цельное, даже если оно во всю
+        стену. Во-вторых, рисунок может быть любым: ваша фотография, логотип, иллюстрация, 3D-сюжет.
+        В-третьих, всё происходит быстро и чисто, без длительного ремонта и резкого запаха.
+      </p>
+    </div>
+  </section>
+
+  <!-- how it works -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap split">
+      <div class="media reveal" style="aspect-ratio:4/3;">
+        <img src="/images/printer-action.jpg" alt="Изображение проявляется прямо на стене" loading="lazy" />
+      </div>
+      <div class="reveal d1">
+        <p class="eyebrow">Как это происходит</p>
+        <h2 class="h-section" style="margin-top:14px;">Изображение проявляется на стене</h2>
+        <div class="prose" style="margin-top:18px;">
+          <p>
+            Мы привозим оборудование на объект, готовим поверхность и наносим изображение прямо на
+            стену. Рисунок проявляется слой за слоем в полном цвете — так же, как в фотопечати, только
+            сразу на стене и в нужном масштабе.
+          </p>
+          <p>
+            Изображение закрепляется в момент печати, поэтому не течёт и не смазывается, а стена
+            становится сухой сразу. Никаких рулонов, стыков и демонтажа — рисунок становится частью
+            стены. Всю работу выполняем мы: вам не нужно ничего готовить, кроме доступа к стене.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- result / benefits (dark) -->
+  <section class="section dark grit">
+    <div class="wrap split rev">
+      <div class="media reveal" style="aspect-ratio:4/3;">
+        <img src="/images/wall-idea.jpg" alt="Цветной мурал, напечатанный на стене" loading="lazy" />
+      </div>
+      <div class="reveal d1">
+        <p class="eyebrow">Результат</p>
+        <h2 class="h-section" style="margin-top:14px;">Что вы получаете на стене</h2>
+        <p class="lead" style="margin-top:16px;">
+          Мы не углубляемся в технические детали — для вас важен результат. Вот что даёт прямая печать.
+        </p>
+        <div class="specs" style="margin-top:22px;">
+          {benefits.map(([k, v]) => (<div class="spec"><span class="k">{v}</span><span class="v">{k}</span></div>))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ink + surfaces -->
+  <section class="section">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+      <div class="reveal">
+        <p class="eyebrow">Стойкость</p>
+        <h2 class="h-section" style="margin:14px 0 16px;">Почему держится годами</h2>
+        <div class="prose">
+          <p>
+            Изображение закрепляется прямо при печати и превращается в прочное покрытие на поверхности
+            стены. Оно не боится влаги, не выгорает на свету и устойчиво к истиранию — при стандартных
+            условиях в помещении рисунок держится до десяти лет.
+          </p>
+          <p>
+            На практике это значит, что стену можно протирать влажной тканью, она не пожелтеет у окна и
+            переживёт активную эксплуатацию в офисе или кафе. А когда изображение надоест, поверхность
+            просто закрашивается обычной краской.
+          </p>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <p class="eyebrow">Поверхности</p>
+        <h2 class="h-section" style="margin:14px 0 16px;">На чём можно печатать</h2>
+        <div class="prose">
+          <p>Технология работает почти с любой сухой и относительно ровной поверхностью. Чаще всего мы печатаем по:</p>
+          <ul>
+            <li>бетону и штукатурке</li>
+            <li>гипсокартону и стенам под покраску</li>
+            <li>кирпичу и декоративной фактуре</li>
+            <li>стеклу, плитке и керамике</li>
+            <li>дереву, металлу и пластику</li>
+          </ul>
+          <p>Если поверхность необычная, мы оцениваем её на бесплатном замере и подбираем решение под конкретную стену.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- comparison -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:36px;">
+        <p class="eyebrow center reveal">Сравнение</p>
+        <h2 class="h-section reveal" style="margin-top:14px;">Печать против привычных способов</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        {compare.map((c, i) => (
+          <div class={`reveal d${i + 1}`} style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;">
+            <h3 style="font-size:19px;margin-bottom:10px;">{c.t}</h3>
+            <p style="font-size:15px;">{c.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-banner grit reveal">
+        <div class="inner">
+          <h2 class="h-section" style="max-width:22ch;margin:0 auto;">Подберём решение под вашу стену</h2>
+          <p class="lead" style="color:#cfcfcf;margin:18px auto 0;max-width:52ch;">
+            Расскажите, какая у вас поверхность и какой нужен сюжет — оценим возможность печати и
+            бесплатно сделаем макет.
+          </p>
+          <div style="margin-top:30px;"><a href="/kontakty/" class="btn btn-accent">Задать вопрос <span class="arr">→</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
