@@ -1,0 +1,306 @@
+---
+import Base from "../layouts/Base.astro";
+import WallCompare from "../components/WallCompare.astro";
+import { site } from "../site.config";
+
+const slides = [
+  { img: "/images/mural-david.jpg", tag: "Арт", cap: "Давид · художественная печать", pos: "center 22%" },
+  { img: "/images/mural-matterhorn.jpg", tag: "Фотопечать", cap: "Маттерхорн · акцентная стена", pos: "center 26%" },
+  { img: "/images/wall-harbor.jpg", tag: "3D-иллюзия", cap: "Порт на закате · бизнес-центр", pos: "center" },
+  { img: "/images/mural-jordan.jpg", tag: "Спорт", cap: "Легенда баскетбола · шоурум", pos: "center 36%" },
+  { img: "/images/mural-time.jpg", tag: "Типографика", cap: "«То самое время» · бренд-стена", pos: "center 45%" },
+  { img: "/images/wall-eye.jpg", tag: "Фотопечать", cap: "Взгляд · переговорная", pos: "center" },
+];
+
+// label counts = ready-made design options per category (placeholder figures — see notes.md)
+const cats = [
+  { name: "Офисы", label: "240 вариантов", img: "/images/mural-time.jpg" },
+  { name: "Кафе", label: "180 вариантов", img: "/images/mural-jordan.jpg" },
+  { name: "Дома", label: "320 вариантов", img: "/images/mural-matterhorn.jpg" },
+  { name: "Холлы", label: "90 вариантов", img: "/images/mural-david.jpg" },
+  { name: "3D-арт", label: "60 вариантов", img: "/images/wall-harbor.jpg" },
+];
+
+const works = [
+  { img: "/images/mural-david.jpg", cat: "Арт", title: "Давид", loc: "Лобби, Минск" },
+  { img: "/images/wall-harbor.jpg", cat: "3D-иллюзия", title: "Порт на закате", loc: "Бизнес-центр, Минск" },
+  { img: "/images/mural-jordan.jpg", cat: "Спорт", title: "Легенда баскетбола", loc: "Шоурум, Минск" },
+  { img: "/images/mural-matterhorn.jpg", cat: "Фотопечать", title: "Маттерхорн", loc: "Квартира, Минск" },
+  { img: "/images/mural-time.jpg", cat: "Типографика", title: "То самое время", loc: "Офис, Минск" },
+  { img: "/images/wall-eye.jpg", cat: "Фотопечать", title: "Взгляд", loc: "Переговорная, Минск" },
+  { img: "/images/mural-floral.jpg", cat: "Декор", title: "Цветочная стена", loc: "Студия, Минск" },
+  { img: "/images/mural-astronaut.jpg", cat: "Иллюстрация", title: "Космонавт", loc: "Офис, Минск" },
+];
+
+const advantages = [
+  { c: "var(--cyan)", t: "Свой принтер, не посредники", d: "Печатаем на собственном оборудовании. Вы общаетесь напрямую с теми, кто делает работу, без наценки агентств." },
+  { c: "var(--magenta)", t: "Макет до начала работ", d: "Сначала показываем 3D-визуализацию на вашей стене. Вы соглашаетесь на результат заранее, а не вслепую." },
+  { c: "var(--accent)", t: "Чисто и быстро", d: "Без пыли, грязи и резкого запаха. Большинство стен печатаем за один рабочий день." },
+  { c: "var(--yellow)", t: "Любая поверхность", d: "Бетон, штукатурка, гипсокартон, кирпич, стекло, плитка. Подберём режим под вашу стену." },
+  { c: "var(--cyan)", t: "Стойко на годы", d: "УФ-чернила не выгорают и не боятся влаги. Стену можно протирать, изображение держится до 10 лет." },
+  { c: "var(--magenta)", t: "Минск и вся Беларусь", d: "Работаем по городу и выезжаем в регионы. Замер и консультация в Минске — бесплатно." },
+];
+
+const steps = [
+  { n: "Шаг 01", t: "Замер и идея", d: "Приезжаем на объект, замеряем стену и обсуждаем сюжет. Выезд по Минску бесплатный." },
+  { n: "Шаг 02", t: "Макет", d: "Готовим 3D-визуализацию: вы видите результат на своей стене до начала печати." },
+  { n: "Шаг 03", t: "Печать", d: "Принтер наносит изображение прямо на стену. Чисто, без запаха и демонтажа." },
+  { n: "Шаг 04", t: "Готово", d: "Изображение сухое сразу. Помещением можно пользоваться в тот же день." },
+];
+---
+
+<Base>
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+      {slides.map((s, i) => (
+        <div
+          class={`hero-slide${i === 0 ? " active" : ""}`}
+          style={`background-image:url('${s.img}');background-position:${s.pos}`}
+          data-cap={`${s.tag} · ${s.cap}`}
+        ></div>
+      ))}
+    </div>
+    <div class="hero-scrim"></div>
+    <div class="wrap hero-content">
+      <p class="eyebrow center reveal">Печать на стенах · Минск и вся Беларусь</p>
+      <h1 class="h-display reveal d1">
+        Печатаем изображения <span class="hl">прямо на ваших стенах</span>
+      </h1>
+      <p class="lead reveal d2">
+        Фотографии, муралы, логотипы и 3D-иллюзии с фотографическим качеством —
+        напрямую на бетоне, штукатурке, стекле или кирпиче. Без обоев, без плёнки, без швов.
+      </p>
+      <div class="hero-actions reveal d3">
+        <a href="/portfolio/" class="btn btn-accent">Смотреть работы</a>
+        <a href="/kontakty/" class="btn btn-ghost on-dark">Рассчитать стоимость</a>
+      </div>
+    </div>
+    <div class="hero-caption">
+      <span class="hero-tag" id="heroTag">{`${slides[0].tag} · ${slides[0].cap}`}</span>
+      <div class="hero-dots" id="heroDots"></div>
+    </div>
+  </section>
+
+  <!-- ============================ VIDEO (2nd section — 8 секунд, до кнопки «Все услуги») ============================ -->
+  <section class="section" style="background:#fafafa;border-bottom:1px solid var(--line);">
+    <div class="wrap video-feature">
+      <div class="reveal">
+        <p class="eyebrow">Печать вживую</p>
+        <h2 class="h-section" style="margin-top:14px;">Посмотрите, как печатается стена</h2>
+        <div class="prose" style="margin-top:18px;">
+          <p>
+            Никакой магии — только аккуратная работа. Оборудование движется вдоль стены, и изображение
+            проявляется прямо на поверхности у вас на объекте. Мы привозим и увозим всё сами, а
+            помещение остаётся чистым.
+          </p>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="/portfolio/" class="btn btn-dark">Смотреть работы <span class="arr">→</span></a>
+          <a href="/kontakty/#zayavka" class="btn btn-ghost">Заказать печать</a>
+        </div>
+      </div>
+      <div class="video-phone reveal d1">
+        <span class="video-tag">Наш принтер за работой</span>
+        <video src="/videos/printing.mp4" poster="/images/printing-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CATEGORIES (hover image pops up over heading) ============================ -->
+  <section class="section" id="services" style="padding-top:60px;">
+    <div class="wrap">
+      <p class="var-intro reveal">
+        Превратите любую стену в часть интерьера. Печатаем под задачу офиса, кафе, дома и
+        общественного пространства, в любых стилях, цветах и сюжетах.
+      </p>
+      <div class="var-row reveal">
+        {cats.map((c) => (
+          <div class="var-item">
+            <span class="var-label">{c.label}</span>
+            <span class="var-name">{c.name}</span>
+            <span class="var-arrow">↘</span>
+            <img class="var-pop" src={c.img} alt={c.name} loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <div style="margin-top:54px;text-align:center;"><a href="/uslugi/" class="btn btn-ghost reveal">Все услуги <span class="arr">→</span></a></div>
+    </div>
+  </section>
+
+  <!-- ============================ INTRO ============================ -->
+  <section class="section">
+    <div class="wrap" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;">
+      <div class="reveal">
+        <p class="eyebrow">Кто мы</p>
+        <h2 class="h-section" style="margin-top:14px;max-width:16ch;">Студия прямой печати по стенам</h2>
+      </div>
+      <div class="prose reveal d1" style="max-width:none;">
+        <p>
+          <strong>Gigapixel</strong> — это студия из Минска, которая печатает изображения прямо на
+          стене. Мы не клеим обои и не наносим рисунок кистью. Специальный принтер движется вдоль
+          поверхности и наносит чернила точка за точкой, как настольный принтер на бумаге — только
+          вертикально и в любом размере. На стене появляется фотография, иллюстрация, логотип или
+          объёмный сюжет в полном цвете.
+        </p>
+        <p>
+          Такая печать выглядит дороже краски, служит дольше плёнки и не имеет швов. Ей можно
+          оформить переговорную, кафе, лестничный холл, детскую или фасад. Ниже — направления, в
+          которых мы работаем, примеры наших стен и понятное объяснение, как всё устроено.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IS IT ============================ -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap split">
+      <div class="reveal">
+        <p class="eyebrow">Простыми словами</p>
+        <h2 class="h-section" style="margin-top:14px;">Что такое печать на стене?</h2>
+        <div class="prose" style="margin-top:18px;">
+          <p>
+            Представьте обычный принтер, который встал вертикально и поехал по стене. Он наносит
+            изображение строку за строкой — и на поверхности появляется картинка в полном цвете и
+            фотографическом качестве. Это не наклейка и не ручная роспись, а цифровая печать прямо
+            по стене.
+          </p>
+        </div>
+        <ul class="feature-list">
+          <li><span class="ic" style="background:var(--cyan)">✓</span><span><b>Не плёнка и не обои.</b> Нет швов, пузырей и стыков — изображение становится частью стены.</span></li>
+          <li><span class="ic" style="background:var(--magenta)">✓</span><span><b>Фотографическое качество.</b> Чёткие детали и плавные градиенты даже на большой площади.</span></li>
+          <li><span class="ic" style="background:#111;">✓</span><span><b>Почти любая поверхность.</b> Бетон, штукатурка, гипсокартон, кирпич, стекло, плитка.</span></li>
+          <li><span class="ic" style="background:var(--yellow);color:#111;">✓</span><span><b>Быстро и чисто.</b> Без запаха и пыли, изображение высыхает сразу.</span></li>
+        </ul>
+        <div style="margin-top:26px;"><a href="/tehnologiya/" class="btn btn-dark">Как это работает <span class="arr">→</span></a></div>
+      </div>
+      <div class="media reveal d1" style="aspect-ratio:4/3;">
+        <img src="/images/printer-action.jpg" alt="Принтер Gigapixel печатает изображение прямо на стене" loading="lazy" />
+        <div class="badge-float"><div class="num">10<small style="font-size:18px"> лет</small></div><div class="lbl">держится без выцветания</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ COMPARE (печать или обои — after «Что такое печать») ============================ -->
+  <WallCompare />
+
+  <!-- ============================ PORTFOLIO TEASER ============================ -->
+  <section class="section" id="works">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:34px;">
+        <div>
+          <p class="eyebrow reveal">Портфолио</p>
+          <h2 class="h-section reveal" style="margin-top:14px;">Наши работы на стенах</h2>
+        </div>
+        <a href="/portfolio/" class="btn btn-ghost reveal d1">Всё портфолио <span class="arr">→</span></a>
+      </div>
+      <div class="masonry">
+        {works.map((w) => (
+          <a href="/portfolio/" class="work reveal">
+            <img src={w.img} alt={w.title} loading="lazy" />
+            <div class="work-info">
+              <span class="work-cat">{w.cat}</span>
+              <div class="work-title">{w.title}</div>
+              <div class="work-loc">{w.loc}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ STATS ============================ -->
+  <section class="section dark grit">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal" style="border-color:var(--cyan)"><div class="num">10<small> лет</small></div><div class="lbl">стойкость к выцветанию и влаге</div></div>
+        <div class="stat reveal d1" style="border-color:var(--magenta)"><div class="num">1<small> день</small></div><div class="lbl">средний срок печати одной стены</div></div>
+        <div class="stat reveal d2" style="border-color:var(--accent)"><div class="num">14+</div><div class="lbl">типов поверхностей под печать</div></div>
+        <div class="stat reveal d3" style="border-color:#fff"><div class="num">0<small> ₽</small></div><div class="lbl">выезд по Минску и 3D-макет</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ ADVANTAGES ============================ -->
+  <section class="section">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:40px;">
+        <p class="eyebrow center reveal">Почему Gigapixel</p>
+        <h2 class="h-section reveal" style="margin-top:14px;">Шесть причин доверить нам стену</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+        {advantages.map((a, i) => (
+          <div class={`reveal d${(i % 3) + 1}`} style="border:1px solid var(--line);border-radius:16px;padding:26px;">
+            <div style={`width:44px;height:44px;border-radius:12px;background:${a.c};margin-bottom:16px;`}></div>
+            <h3 style="font-size:19px;margin-bottom:8px;">{a.t}</h3>
+            <p style="font-size:15px;">{a.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PROCESS ============================ -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);">
+    <div class="wrap">
+      <p class="eyebrow reveal">Как мы работаем</p>
+      <h2 class="h-section reveal" style="margin:14px 0 36px;">От замера до готовой стены — 4 шага</h2>
+      <div class="steps">
+        {steps.map((s, i) => (
+          <div class={`step reveal d${i + 1}`}>
+            <div class="n">{s.n}</div>
+            <h3>{s.t}</h3>
+            <p style="font-size:15px;">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA ============================ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="cta-banner grit reveal">
+        <div class="inner">
+          <p class="eyebrow center" style="color:#fff;">Бесплатно и без обязательств</p>
+          <h2 class="h-section" style="margin:16px auto 0;max-width:20ch;">Сделаем 3D-макет вашей стены в подарок</h2>
+          <p class="lead" style="color:#cfcfcf;margin:18px auto 0;max-width:52ch;">
+            Пришлите размеры стены и идею — рассчитаем стоимость и покажем, как изображение будет
+            смотреться в вашем помещении, ещё до начала печати.
+          </p>
+          <div style="margin-top:30px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="/kontakty/#zayavka" class="btn btn-accent">Получить макет <span class="arr">→</span></a>
+            <a href={`tel:${site.phoneHref}`} class="btn btn-ghost on-dark">Позвонить</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // full-width hero image carousel (crossfade)
+    const heroSlides = Array.from(document.querySelectorAll<HTMLElement>(".hero-slide"));
+    const heroDots = document.getElementById("heroDots");
+    const heroTag = document.getElementById("heroTag");
+    if (heroSlides.length && heroDots) {
+      let idx = 0;
+      let timer: number | undefined;
+      const go = (i: number) => {
+        heroSlides[idx].classList.remove("active");
+        idx = (i + heroSlides.length) % heroSlides.length;
+        heroSlides[idx].classList.add("active");
+        Array.from(heroDots.children).forEach((d, j) => d.classList.toggle("active", j === idx));
+        if (heroTag) heroTag.textContent = heroSlides[idx].dataset.cap || "";
+      };
+      const reset = () => { if (timer) clearInterval(timer); timer = window.setInterval(() => go(idx + 1), 12000); };
+      heroSlides.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.className = "hero-dot" + (i === 0 ? " active" : "");
+        b.setAttribute("aria-label", `Слайд ${i + 1}`);
+        b.addEventListener("click", () => { go(i); reset(); });
+        heroDots.appendChild(b);
+      });
+      reset();
+    }
+  </script>
+</Base>

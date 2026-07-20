@@ -1,0 +1,324 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../site.config";
+
+const faqs = [
+  { q: "Это краска, плёнка или обои?", a: "Ни то, ни другое. Изображение печатается чернилами прямо по поверхности стены — как на принтере, только вертикально и в большом масштабе. Нет швов, стыков и плёнки, которая со временем отклеивается." },
+  { q: "Не испортит ли это стену?", a: "Нет. Печать ложится тонким слоем чернил поверх подготовленной поверхности. Стену не нужно ломать или демонтировать, а при необходимости изображение позже закрашивается обычной краской." },
+  { q: "На какой поверхности можно печатать?", a: "Бетон, штукатурка, гипсокартон, кирпич, стекло, плитка, дерево, металл, обои под покраску. Поверхность должна быть сухой и относительно ровной — небольшие неровности принтер компенсирует автоматически." },
+  { q: "Сколько держится изображение?", a: "Изображение влагостойкое и устойчиво к выцветанию — при стандартных условиях в помещении оно держится до десяти лет. Стену можно протирать влажной тканью." },
+  { q: "Есть ли запах? Можно ли в детской?", a: "Чернила отверждаются УФ-светом и высыхают мгновенно, резкого запаха нет. Печать подходит для жилых комнат, детских и общественных помещений." },
+  { q: "Сколько времени занимает печать?", a: "Большинство стен мы печатаем за один рабочий день, не считая подготовки макета. Точный срок зависит от площади и сложности сюжета." },
+  { q: "Что можно напечатать?", a: "Любое изображение в высоком разрешении: ваше фото, логотип и фирменный стиль, иллюстрацию, карту, 3D-сюжет. Поможем подобрать или подготовить макет под размер стены." },
+  { q: "Сколько это стоит?", a: "Стоимость считается за квадратный метр и зависит от площади, сложности сюжета и подготовки стены. Пришлите размеры и идею — рассчитаем смету и бесплатно сделаем визуализацию." },
+];
+---
+
+<Base title="Контакты" description="Связаться с Gigapixel — прямая печать на стенах в Минске и по всей Беларуси. Телефон, почта, мессенджеры, бесплатный выезд и 3D-макет.">
+  <section class="page-hero">
+    <div class="wrap" style="position:relative;z-index:1;">
+      <p class="crumb">Главная — Контакты</p>
+      <h1>Связаться с <span class="hl">Gigapixel</span></h1>
+      <p class="lead">
+        Расскажите про стену и идею — ответим, рассчитаем стоимость и бесплатно сделаем 3D-макет.
+        Выезд по Минску бесплатный.
+      </p>
+    </div>
+  </section>
+
+  <!-- about -->
+  <section class="section" style="padding-bottom:48px;">
+    <div class="wrap" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start;">
+      <div class="reveal">
+        <p class="eyebrow">О студии</p>
+        <h2 class="h-section" style="margin-top:14px;max-width:14ch;">Печатаем стены в Минске</h2>
+      </div>
+      <div class="prose reveal d1" style="max-width:none;">
+        <p>
+          Gigapixel — студия прямой печати по стенам из Минска. Мы выросли из простой идеи: большое
+          качественное изображение на стене не должно быть дорогим, долгим или сложным. Вместо обоев,
+          баннеров и ручной росписи мы привозим вертикальный принтер и наносим картинку прямо на
+          поверхность с фотографическим качеством.
+        </p>
+        <p>
+          Мы работаем со своим оборудованием и ведём проект от начала до конца: приезжаем на замер,
+          готовим 3D-макет, согласуем сюжет и печатаем. Это значит, что вы общаетесь напрямую с
+          исполнителями, видите результат заранее и не платите за лишние звенья между вами и стеной.
+        </p>
+        <p>
+          Нам одинаково интересны и небольшие домашние стены, и масштабные офисные проекты. Если у вас
+          есть поверхность и идея — у нас есть способ перенести её на стену так, чтобы она держалась
+          годами.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- service area + how to order -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;">
+      <div class="reveal">
+        <h3 style="font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:14px;">Где мы работаем</h3>
+        <div class="prose">
+          <p>
+            Основная зона работы — Минск и Минский район, здесь выезд на замер бесплатный. Также
+            выезжаем в другие города Беларуси: обсудим детали и логистику под конкретный проект.
+            Печатаем на объектах любого типа — квартиры, дома, офисы, кафе, магазины, школы и
+            общественные пространства.
+          </p>
+        </div>
+      </div>
+      <div class="reveal d1">
+        <h3 style="font-size:clamp(1.4rem,2.6vw,1.9rem);margin-bottom:14px;">Как заказать</h3>
+        <div class="prose">
+          <p>Всё начинается с одного сообщения. Дальше — четыре простых шага:</p>
+          <ul>
+            <li>вы пишете нам про стену и идею</li>
+            <li>мы приезжаем на бесплатный замер по Минску</li>
+            <li>готовим 3D-макет и считаем стоимость</li>
+            <li>после согласования печатаем — обычно за один день</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact cards -->
+  <section class="section">
+    <div class="wrap">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+        <a href={`tel:${site.phoneHref}`} class="reveal" style="border:1px solid var(--line);border-radius:16px;padding:28px;display:block;">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--accent);margin-bottom:16px;"></div>
+          <div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;">Телефон</div>
+          <div style="font-size:20px;font-weight:800;color:var(--ink);margin-top:8px;">{site.phone}</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:6px;">Пн–Сб, 9:00–20:00</div>
+        </a>
+        <a href={`mailto:${site.email}`} class="reveal d1" style="border:1px solid var(--line);border-radius:16px;padding:28px;display:block;">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--cyan);margin-bottom:16px;"></div>
+          <div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;">Почта</div>
+          <div style="font-size:20px;font-weight:800;color:var(--ink);margin-top:8px;word-break:break-all;">{site.email}</div>
+          <div style="font-size:14px;color:var(--muted);margin-top:6px;">Ответим в течение дня</div>
+        </a>
+        <div class="reveal d2" style="border:1px solid var(--line);border-radius:16px;padding:28px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:var(--magenta);margin-bottom:16px;"></div>
+          <div style="font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;">Мессенджеры и соцсети</div>
+          <div style="display:flex;gap:14px;margin-top:10px;flex-wrap:wrap;">
+            <a href={site.social.telegram} target="_blank" rel="noopener" style="font-size:18px;font-weight:800;color:var(--ink);">Telegram</a>
+            <a href={site.social.instagram} target="_blank" rel="noopener" style="font-size:18px;font-weight:800;color:var(--ink);">Instagram</a>
+          </div>
+          <div style="font-size:14px;color:var(--muted);margin-top:10px;">{site.address}</div>
+        </div>
+      </div>
+      <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="#zayavka" class="btn btn-accent">Получить 3D-макет <span class="arr">→</span></a>
+        <a href={`tel:${site.phoneHref}`} class="btn btn-ghost">Позвонить</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- lead form -->
+  <section class="section" id="zayavka" style="scroll-margin-top:96px;background:#fafafa;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:48px;align-items:start;">
+      <div class="reveal">
+        <p class="eyebrow">Оставить заявку</p>
+        <h2 class="h-section" style="margin-top:14px;max-width:15ch;">Расскажите про стену — соберём 3D-макет</h2>
+        <div class="prose" style="margin-top:18px;">
+          <p>
+            Заполните форму — ответим в течение рабочего дня, подберём сюжет, рассчитаем стоимость
+            и бесплатно покажем, как изображение будет смотреться на вашей стене.
+          </p>
+          <ul>
+            <li>бесплатный выезд на замер по Минску</li>
+            <li>3D-макет ещё до начала печати</li>
+            <li>понятная смета за квадратный метр</li>
+          </ul>
+        </div>
+        <div style="margin-top:26px;display:grid;gap:8px;">
+          <a href={`tel:${site.phoneHref}`} style="font-weight:800;font-size:20px;color:var(--ink);">{site.phone}</a>
+          <a href={`mailto:${site.email}`} style="font-weight:600;color:var(--body);">{site.email}</a>
+        </div>
+      </div>
+
+      <div class="reveal d1">
+        <div class="form-card">
+          <form id="lead-form" class="form-grid" action={`https://formsubmit.co/${site.email}`} method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="Новая заявка с сайта Gigapixel" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" id="lead-next" value="https://gigapixel.by/kontakty/?sent=1" />
+            <input type="text" name="_honey" class="form-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="form-row2">
+              <div class="field">
+                <label for="f-name">Имя <span class="req">*</span></label>
+                <input id="f-name" name="Имя" type="text" required placeholder="Как к вам обращаться" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Телефон или Telegram <span class="req">*</span></label>
+                <input id="f-phone" name="Телефон / Telegram" type="text" required placeholder="+375 __ ___-__-__" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-email">E-mail</label>
+              <input id="f-email" name="E-mail" type="email" placeholder="Если удобнее ответить почтой" />
+            </div>
+            <div class="field">
+              <label for="f-msg">Про стену и идею <span class="req">*</span></label>
+              <textarea id="f-msg" name="Сообщение" required placeholder="Помещение, примерный размер стены и что хотите видеть."></textarea>
+            </div>
+            <div class="field">
+              <label for="f-files">Фото стены или референс <span class="opt">(необязательно)</span></label>
+              <input id="f-files" name="attachment" type="file" multiple accept="image/*,.pdf,.heic" class="file-native" />
+              <div class="filepick">
+                <button type="button" class="filepick-btn" id="f-files-btn">Прикрепить файлы</button>
+                <span class="filepick-name" id="f-files-name">Файлы не выбраны</span>
+              </div>
+              <p class="form-note" id="f-files-hint">Можно приложить фото стены или пример картинки — до 10 МБ суммарно. Если файлов больше, пришлите их в Telegram или на почту.</p>
+            </div>
+            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+            <button type="submit" class="btn btn-accent form-submit">Отправить заявку <span class="arr">→</span></button>
+            <p class="form-note">Нажимая «Отправить», вы соглашаетесь на обработку контактных данных для ответа на заявку.</p>
+          </form>
+
+          <div id="form-success" class="form-success">
+            <div class="tick">✓</div>
+            <h3 style="font-size:1.35rem;margin-bottom:8px;">Заявка отправлена</h3>
+            <p style="color:var(--body);max-width:36ch;margin:0 auto;">Спасибо! Мы получили ваше сообщение и свяжемся с вами в течение рабочего дня.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- why us -->
+  <section class="section" style="background:var(--char);" >
+    <div class="dark grit" style="margin:0;">
+      <div class="wrap" style="display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start;">
+        <div class="reveal">
+          <p class="eyebrow" style="color:#fff;">Чем полезны</p>
+          <h2 class="h-section" style="margin-top:14px;color:#fff;max-width:16ch;">Снимаем все вопросы заранее</h2>
+        </div>
+        <div class="prose reveal d1" style="max-width:none;">
+          <p style="color:#c9c9c9;">
+            Многие сомневаются, прежде чем заказать печать на стене: испортит ли это поверхность,
+            насколько это долго, как будет выглядеть вблизи. Мы убираем эти сомнения до начала работ.
+            Бесплатный замер и 3D-макет показывают точный результат, а понятная смета за квадратный метр
+            не оставляет скрытых доплат.
+          </p>
+          <p style="color:#c9c9c9;">
+            Если вы пока только присматриваетесь и не уверены, что именно хотите на стене, — это
+            нормально. Напишите нам с примерным описанием помещения и настроения, и мы предложим
+            несколько вариантов сюжета, подскажем удачный размер и честно скажем, где печать будет
+            смотреться выигрышно, а где лучше выбрать другое решение.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background:#fafafa;border-top:1px solid var(--line);" id="faq">
+    <div class="wrap">
+      <div style="text-align:center;margin-bottom:34px;">
+        <p class="eyebrow center reveal">Вопросы и ответы</p>
+        <h2 class="h-section reveal" style="margin-top:14px;">Что чаще всего спрашивают</h2>
+      </div>
+      <div class="faq reveal d1">
+        {faqs.map((f, i) => (
+          <details class="qa" open={i === 0}>
+            <summary>{f.q}<span class="plus"></span></summary>
+            <div class="ans">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Lead form. Two paths, because FormSubmit only attaches files on a normal
+    // POST (its AJAX endpoint drops uploads):
+    //   • no files  → inline AJAX submit, no page reload
+    //   • files     → native multipart POST; FormSubmit emails the files as
+    //                 attachments and redirects back here with ?sent=1
+    // Attachments arrive in the same email to gigapixel.by@gmail.com.
+    const form = document.getElementById("lead-form") as HTMLFormElement | null;
+    if (form) {
+      const statusEl = document.getElementById("form-status")!;
+      const successEl = document.getElementById("form-success")!;
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const fileInput = document.getElementById("f-files") as HTMLInputElement;
+      const fileBtn = document.getElementById("f-files-btn") as HTMLButtonElement;
+      const fileName = document.getElementById("f-files-name")!;
+      const fileHint = document.getElementById("f-files-hint")!;
+      const nextInput = document.getElementById("lead-next") as HTMLInputElement;
+      const plural = (n: number) => { const a = n % 100, b = n % 10; if (a >= 11 && a <= 14) return "файлов"; if (b === 1) return "файл"; if (b >= 2 && b <= 4) return "файла"; return "файлов"; };
+      fileBtn.addEventListener("click", () => fileInput.click());
+      const ajax = form.getAttribute("action")!.replace("formsubmit.co/", "formsubmit.co/ajax/");
+      const HINT = "Можно приложить фото стены или пример картинки — до 10 МБ суммарно. Если файлов больше, пришлите их в Telegram или на почту.";
+      const MAX_TOTAL = 10 * 1024 * 1024; // FormSubmit attachment cap (sum of files)
+
+      const showSuccess = () => {
+        form.style.display = "none";
+        successEl.classList.add("show");
+        successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+      };
+
+      // returned from a native (with-files) submit
+      if (new URLSearchParams(location.search).get("sent") === "1") showSuccess();
+
+      const totalBytes = () => Array.from(fileInput.files || []).reduce((s, f) => s + f.size, 0);
+      const tooBig = () => totalBytes() > MAX_TOTAL;
+
+      fileInput.addEventListener("change", () => {
+        const n = fileInput.files?.length || 0;
+        const one = n === 1 ? fileInput.files![0].name : "";
+        fileName.textContent = n === 0 ? "Файлы не выбраны"
+          : n === 1 ? (one.length > 34 ? one.slice(0, 31) + "…" : one)
+          : `Выбрано ${n} ${plural(n)}`;
+        if (tooBig()) {
+          fileHint.textContent = "Файлы больше 10 МБ суммарно — уберите часть, а остальное пришлите в Telegram или на почту.";
+          fileHint.style.color = "#a3123f";
+        } else {
+          fileHint.textContent = HINT;
+          fileHint.style.color = "";
+        }
+      });
+
+      form.addEventListener("submit", async (e) => {
+        const honey = form.querySelector('input[name="_honey"]') as HTMLInputElement;
+        if (honey && honey.value) { e.preventDefault(); return; } // bot
+
+        const hasFiles = (fileInput.files?.length || 0) > 0;
+
+        if (hasFiles) {
+          if (tooBig()) { e.preventDefault(); fileInput.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
+          // let the native multipart POST proceed so files are attached;
+          // come back to this page's success state after FormSubmit redirects.
+          nextInput.value = location.origin + location.pathname + "?sent=1#zayavka";
+          btn.disabled = true;
+          btn.textContent = "Отправляем…";
+          return;
+        }
+
+        // text only → inline AJAX, no reload
+        e.preventDefault();
+        statusEl.className = "form-status";
+        statusEl.textContent = "";
+        const label = btn.innerHTML;
+        btn.disabled = true;
+        btn.textContent = "Отправляем…";
+        try {
+          const res = await fetch(ajax, { method: "POST", headers: { Accept: "application/json" }, body: new FormData(form) });
+          if (!res.ok) throw new Error(String(res.status));
+          showSuccess();
+        } catch (err) {
+          statusEl.className = "form-status err show";
+          statusEl.innerHTML =
+            'Не удалось отправить форму. Напишите нам напрямую: <a href="mailto:gigapixel.by@gmail.com" style="color:inherit;text-decoration:underline;">gigapixel.by@gmail.com</a> или позвоните.';
+          btn.disabled = false;
+          btn.innerHTML = label;
+        }
+      });
+    }
+  </script>
+</Base>

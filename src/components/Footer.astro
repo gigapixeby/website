@@ -1,0 +1,62 @@
+---
+import { site } from "../site.config";
+const year = 2026;
+const services = [
+  { t: "Фотопечать на стене", h: "/uslugi/" },
+  { t: "Муралы и арт-роспись", h: "/uslugi/" },
+  { t: "3D-иллюзии", h: "/uslugi/" },
+  { t: "Брендирование офисов", h: "/uslugi/" },
+  { t: "Печать для HoReCa", h: "/uslugi/" },
+  { t: "Декор детских комнат", h: "/uslugi/" },
+];
+---
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="/images/logo-white.png" alt="GIGAPIXEL" class="foot-logo" />
+        <p style="max-width:34ch;font-size:15px;line-height:1.7;">
+          Печатаем изображения прямо на стенах — с фотографическим качеством, на любой
+          поверхности. Минск и вся Беларусь.
+        </p>
+        <div style="display:flex;gap:16px;margin-top:20px;">
+          {site.social.instagram && (<a href={site.social.instagram} target="_blank" rel="noopener" style="font-weight:700;color:#fff;">Instagram</a>)}
+          {site.social.telegram && (<a href={site.social.telegram} target="_blank" rel="noopener" style="font-weight:700;color:#fff;">Telegram</a>)}
+        </div>
+      </div>
+
+      <div>
+        <h4>Услуги</h4>
+        <ul class="footer-list">
+          {services.map((s) => <li><a href={s.h}>{s.t}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Разделы</h4>
+        <ul class="footer-list">
+          {site.nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </div>
+
+      <div>
+        <h4>Контакты</h4>
+        <ul class="footer-list">
+          <li><a href={`tel:${site.phoneHref}`}>{site.phone}</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li>{site.address}</li>
+          <li style="color:#fff;font-weight:600;margin-top:6px;">Пн–Сб, 9:00–20:00</li>
+        </ul>
+        <a href="/kontakty/" class="btn btn-accent" style="margin-top:20px;padding:12px 22px;">Заказать макет</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} GIGAPIXEL Wall Printing. Минск, Беларусь.</span>
+      <span>Печать на стенах · фотографическое качество</span>
+    </div>
+  </div>
+
+  <div class="wordmark" aria-hidden="true">GIGAPIXEL</div>
+</footer>
